@@ -1,0 +1,11 @@
+{
+  "name": "react-native-update-android",
+  "version": "1.0.0",
+  "description": "apk update ",
+  "main": "updateForAndroid.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cxj",
+  "license": "ISC"
+}
