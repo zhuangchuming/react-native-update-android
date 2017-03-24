@@ -1,4 +1,4 @@
-package gaomu.Package;
+package com.cxj.react_native_update_android;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
