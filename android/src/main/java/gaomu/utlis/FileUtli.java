@@ -47,7 +47,7 @@ public class FileUtli {
             for (File f : childFile) {
                 deleteAllFiles(f);
             }
-            file.delete();
+            //file.delete();
         }
     }
 
