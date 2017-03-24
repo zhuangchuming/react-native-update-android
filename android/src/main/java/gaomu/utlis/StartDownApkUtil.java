@@ -117,7 +117,7 @@ public class StartDownApkUtil {
 
     //停止下载
     public static void stopDownApk(Context context){
-        context.stopService(new Intent(context.getApplicationContext(), ApkDownService.class));
+         context.getApplicationContext().stopService(new Intent(context.getApplicationContext(), ApkDownService.class));
     }
 
     //开始安装
