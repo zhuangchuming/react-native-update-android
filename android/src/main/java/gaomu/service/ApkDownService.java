@@ -66,7 +66,12 @@ public class ApkDownService extends Service {
         registerReceiver(receiver, new IntentFilter(
                 DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
-         startDown();
+	try {
+            Thread.sleep(1000);
+            startDown();
+        } catch (InterruptedException e) {
+        }
+
     }
 
 
@@ -84,6 +89,7 @@ public class ApkDownService extends Service {
             PreferencesUtils.putLong(this.getApplicationContext(),Config.DOWN_ID_KEY,downId);
         } catch (Exception e) {
             e.toString();
+	    stopThisService();
         }
     }
 
