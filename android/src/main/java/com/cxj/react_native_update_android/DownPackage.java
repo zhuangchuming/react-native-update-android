@@ -27,7 +27,7 @@ public class DownPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new DownModule(reactContext));
+        modules.add(new DownModule(reactContext,this.isZw));
         return modules;
     }
 
