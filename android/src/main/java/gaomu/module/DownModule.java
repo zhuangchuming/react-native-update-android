@@ -15,9 +15,12 @@ import gaomu.utlis.StartDownApkUtil;
 public class DownModule extends ReactContextBaseJavaModule {
 
 
-    public DownModule(ReactApplicationContext reactContext){
+     boolean isZw =false;
+    public DownModule(ReactApplicationContext reactContext,boolean isZw){
         super(reactContext);
+        this.isZw = isZw;
     }
+
 
     @Override
     public String getName() {
@@ -36,5 +39,11 @@ public class DownModule extends ReactContextBaseJavaModule {
     public void getAppDevice(Callback callback) {
         DeviceInfo deviceInfo = StartDownApkUtil.getAppDevice(this.getCurrentActivity());
         callback.invoke(deviceInfo.deviceUuid,deviceInfo.osVersion,deviceInfo.phoneVersion,deviceInfo.versionName);
+    }
+
+
+    @ReactMethod
+    public void getZwStatu(Callback callback) {
+        callback.invoke(isZw);
     }
 }

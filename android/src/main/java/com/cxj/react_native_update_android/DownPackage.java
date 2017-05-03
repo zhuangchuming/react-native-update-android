@@ -17,6 +17,13 @@ import gaomu.module.DownModule;
  */
 
 public class DownPackage implements ReactPackage {
+
+   boolean isZw = false;
+    public DownPackage(boolean isZw){
+        this.isZw = isZw;
+    }
+
+
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();

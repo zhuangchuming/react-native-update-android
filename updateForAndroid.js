@@ -18,6 +18,13 @@ var DownUpdataAndroid = {
   ):void {
     RCTDownUpdataAndroid.getAppDevice(callback);
   },
+
+  getZwStatu:function(
+        callback:Callback
+    ):void {
+        RCTDownUpdataAndroid.getZwStatu(callback);
+    },
+
 };
 
 module.exports = DownUpdataAndroid;
