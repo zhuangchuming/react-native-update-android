@@ -3,7 +3,7 @@ npm install git+https://github.com/cxjpxl/react-native-update-android.git --save
 
 
 
-react-native link  链接模块
+react-native link  链接模块（appCation里面必须传数据  true  or  false）
 
 
 使用方法
@@ -21,3 +21,8 @@ DownUpdataAndroid.getAppDevice(
                     "应用版本：" + versionName;
               
             });
+
+
+DownUpdataAndroid.getZwStatu((isZw)=>{
+            global.isZw = isZw;
+        });
