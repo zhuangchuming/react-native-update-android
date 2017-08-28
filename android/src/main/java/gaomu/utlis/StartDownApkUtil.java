@@ -1,6 +1,5 @@
 package gaomu.utlis;
 
-import android.Manifest;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
@@ -8,15 +7,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.widget.Toast;
 
-
-import com.facebook.react.ReactActivity;
 
 import java.io.File;
 
@@ -42,19 +35,7 @@ public class StartDownApkUtil {
     }
 
     private static void checkSdPremission(Context context){
-        ReactActivity activity = (ReactActivity) context;
-        if(activity == null) return ;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
-                    PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(activity, Config.PERMISSIONS_STORAGE,
-                        Config.REQUEST_EXTERNAL_STORAGE);
-            } else {
-                startService(context);
-            }
-        }else{
-            startService(context);
-        }
+       startService(context);
     }
 
     public static void startService(Context context){
@@ -182,3 +163,4 @@ public class StartDownApkUtil {
         }
     }
 }
+
