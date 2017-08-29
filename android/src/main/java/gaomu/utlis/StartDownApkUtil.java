@@ -13,6 +13,7 @@ import android.text.TextUtils;
 
 import java.io.File;
 
+
 import gaomu.common.Config;
 import gaomu.entry.DeviceInfo;
 import gaomu.service.ApkDownService;
@@ -21,6 +22,7 @@ import static android.content.Context.DOWNLOAD_SERVICE;
 import static android.content.Context.TELEPHONY_SERVICE;
 
 /**
+ * Rn0.46后发生修改	
  * Created by cxj on 17-3-22.
  */
 
