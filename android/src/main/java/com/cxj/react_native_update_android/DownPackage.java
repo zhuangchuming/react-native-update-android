@@ -18,20 +18,23 @@ import gaomu.module.DownModule;
 
 public class DownPackage implements ReactPackage {
 
-   boolean isZw = false;
-    public DownPackage(boolean isZw){
-        this.isZw = isZw;
+    public static String directoryName = "";
+    /**
+    *
+    * */
+    public DownPackage(String directoryName){
+        this.directoryName = directoryName;
     }
 
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new DownModule(reactContext,this.isZw));
+        modules.add(new DownModule(reactContext,this.directoryName));
         return modules;
     }
 
-    @Override
+
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }

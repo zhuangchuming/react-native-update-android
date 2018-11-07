@@ -1,0 +1,9 @@
+android/build/
+android/.gradle/
+android/.idea/
+android/android.iml
+android/react-native-update-android.iml
+android/gradle/
+android/local.properties
+android/gradlew
+android/gradlew.bat

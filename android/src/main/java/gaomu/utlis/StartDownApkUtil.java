@@ -26,11 +26,16 @@ import static android.content.Context.TELEPHONY_SERVICE;
 
 public class StartDownApkUtil {
 
+    public static String directoryName ="";
+    public StartDownApkUtil(String directoryName){
+        this.directoryName = directoryName;
+    }
     //开始下载apk
     public static  void startDownApk(Context context, String version, String downUrl){
         if(context == null)  return ;
         PreferencesUtils.putString(context.getApplicationContext(),Config.VERSION_KEY,version);
         PreferencesUtils.putString(context.getApplicationContext(),Config.DOWN_KEY,downUrl);
+        PreferencesUtils.putString(context.getApplicationContext(),Config.DIRECTORYNAME,directoryName);
         checkSdPremission(context);
     }
 
@@ -54,12 +59,12 @@ public class StartDownApkUtil {
                         return ;
                     }
                     //这里已经带版本号检测
-                    File file = new File(sd+"/gaomu/"+version+".apk");
+                    File file = new File(sd+"/"+directoryName+"/"+version+".apk");
                     if(file.exists()){
                         installAPK(context, Uri.fromFile(file));
                         return;
                     }else{
-                        File myDir = new File(sd+"/gaomu/");
+                        File myDir = new File(sd+"/"+directoryName+"/");
                         FileUtli.deleteAllFiles(myDir);
                     }
                     stopDownApk(context);
@@ -81,7 +86,7 @@ public class StartDownApkUtil {
                 if(TextUtils.isEmpty(sd)){
                     return ;
                 }
-                File myDir = new File(sd+"/gaomu/");
+                File myDir = new File(sd+"/"+directoryName+"/");
                 FileUtli.deleteAllFiles(myDir);
                 context.getApplicationContext().startService(  //启动服务重新下载
                         new Intent(context.getApplicationContext(),
@@ -152,7 +157,7 @@ public class StartDownApkUtil {
                 if (TextUtils.isEmpty(sd)) {
                     return;
                 }
-                File file = new File(sd + "/gaomu/" + version + ".apk");
+                File file = new File(sd + "/"+directoryName+"/" + version + ".apk");
                 if (file.exists()) {
                     StartDownApkUtil.installAPK(context, Uri.fromFile(file));
                     StartDownApkUtil.stopDownApk(context);

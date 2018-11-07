@@ -33,6 +33,8 @@ public class ApkDownService extends Service {
 
     private String downUrl = "";
 
+    private String directoryName = "";
+
     private DownloadManager manager = null;
 
     private DownloadCompleteReceiver receiver = null;
@@ -42,6 +44,7 @@ public class ApkDownService extends Service {
         super.onCreate();
         version = PreferencesUtils.getString(this.getApplicationContext(), Config.VERSION_KEY,"");
         downUrl = PreferencesUtils.getString(this.getApplicationContext(),Config.DOWN_KEY,"");
+        directoryName = PreferencesUtils.getString(this.getApplicationContext(),Config.DIRECTORYNAME,"");
         if(version == null || version.trim().equals("")){
             stopThisService();
             return;
@@ -57,7 +60,7 @@ public class ApkDownService extends Service {
             return ;
         }
 
-        File destDir = new File(sd+"/gaomu");
+        File destDir = new File(sd+"/"+directoryName);
         if (!destDir.exists()) {
             destDir.mkdirs();
         }
@@ -84,7 +87,7 @@ public class ApkDownService extends Service {
                     | DownloadManager.Request.NETWORK_WIFI);
             down.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
             down.setVisibleInDownloadsUi(true);
-            down.setDestinationInExternalPublicDir("gaomu", version+".apk");
+            down.setDestinationInExternalPublicDir(directoryName, version+".apk");
             long downId = manager.enqueue(down);
             PreferencesUtils.putLong(this.getApplicationContext(),Config.DOWN_ID_KEY,downId);
         } catch (Exception e) {
