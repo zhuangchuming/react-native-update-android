@@ -12,12 +12,6 @@ var DownUpdataAndroid = {
   ): void {
     RCTDownUpdataAndroid.updataApp(version, downUrl);
   },
-
-  getAppDevice:function(
-    callback:Callback
-  ):void {
-    RCTDownUpdataAndroid.getAppDevice(callback);
-  },
 };
 
 module.exports = DownUpdataAndroid;

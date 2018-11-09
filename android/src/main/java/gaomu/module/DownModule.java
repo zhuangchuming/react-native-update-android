@@ -27,7 +27,6 @@ public class DownModule extends ReactContextBaseJavaModule {
         downutil=new StartDownApkUtil(directoryName);
     }
 
-
     @Override
     public String getName() {
         return "DownUpdataAndroid";
@@ -37,14 +36,6 @@ public class DownModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void updataApp(String version, String downUrl) {
         downutil.startDownApk(context,version,downUrl);
-    }
-
-
-    //获取版本信息
-    @ReactMethod
-    public void getAppDevice(Callback callback) {
-        DeviceInfo deviceInfo = StartDownApkUtil.getAppDevice(context);
-        callback.invoke(deviceInfo.deviceUuid,deviceInfo.osVersion,deviceInfo.phoneVersion,deviceInfo.versionName);
     }
 }
 
