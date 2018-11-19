@@ -117,7 +117,7 @@ public class StartDownApkUtil {
         if (Build.VERSION.SDK_INT >= 24 ) {//判断版本大于等于7.0 Build.VERSION_CODES.N
             // "sven.com.fileprovider.fileprovider"即是在清单文件中配置的authorities
             // 通过FileProvider创建一个content类型的Uri
-            uri = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".fileprovider", file);
+            uri = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".updateandroid.fileprovider", file);
             intents.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);// 给目标应用一个临时授权
         } else {
             uri = Uri.fromFile(file);

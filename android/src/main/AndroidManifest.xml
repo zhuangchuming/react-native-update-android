@@ -1,5 +1,4 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.cxj.react_native_update_android">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,13 +10,11 @@
         android:supportsRtl="true">
         <service android:name="gaomu.service.ApkDownService" />
         <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
+            android:name="com.cxj.react_native_update_android.UpdateAndroidFileProvider"
+            android:authorities="${applicationId}.updateandroid.fileprovider"
             android:grantUriPermissions="true"
-            tools:replace="android:authorities"
             android:exported="false">
             <meta-data
-                tools:replace="android:resource"
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
